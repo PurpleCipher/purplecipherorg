@@ -2,6 +2,15 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.1.1](https://github.com/PurpleCipher/purplecipherorg/compare/purple-cipher-web-0.1.0...purple-cipher-web-0.1.1) (2022-04-10)
+
+
+### Bug Fixes
+
+* make init tag ([274ede0](https://github.com/PurpleCipher/purplecipherorg/commit/274ede094beeb709cc9680f38889fbca3126bd51))
+
+
+
 # 0.1.0 (2022-04-10)
 
 
