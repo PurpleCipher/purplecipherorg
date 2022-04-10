@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 
 /* eslint-disable */
 
@@ -433,7 +433,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
         <div id="welcome">
           <h1>
             <span> Hello there, </span>
-            Welcome purple-cipher-web 👋
+            Welcome {{ title }} 👋
           </h1>
         </div>
 
@@ -844,6 +844,7 @@ nx affected:e2e</pre>
   encapsulation: ViewEncapsulation.None,
 })
 export class NxWelcomeComponent implements OnInit {
+  @Input() title!: string;
   constructor() {}
 
   ngOnInit(): void {}
