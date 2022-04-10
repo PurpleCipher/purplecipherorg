@@ -7,6 +7,7 @@ on:
 
 env:
   DEPENDENCIES_CACHE: cache-node-modules
+  BUILD_ARTIFACTS: dist-artifacts
 
 jobs:
   version:
@@ -48,3 +49,34 @@ jobs:
           branch: ${{ github.ref }}
           force: true
           tags: true
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Setup Git
+        run: |
+          git config user.name "GitHub Bot"
+          git config user.email "gituser@example.com"
+      - name: Cache node modules
+        id: cache
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ env.DEPENDENCIES_CACHE }}-${{ hashFiles('package-lock.json') }}
+      - name: install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+      - name: Build
+        shell: bash
+        run: npm run nx -- affected --base=last-release --target=build
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ env.BUILD_ARTIFACTS }}
+          path: dist
