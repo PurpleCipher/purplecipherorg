@@ -72,6 +72,9 @@ jobs:
       - name: install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
+      - name: Test
+        shell: bash
+        run: npm run nx -- affected --base=last-release --target=test
       - name: Build
         shell: bash
         run: npm run nx -- affected --base=last-release --target=build
