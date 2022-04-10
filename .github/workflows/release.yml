@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 env:
   DEPENDENCIES_CACHE: cache-node-modules
@@ -15,7 +12,7 @@ env:
 jobs:
   version:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name }} != 'pull_request'
+    needs: [test]
     steps:
       - uses: actions/checkout@v3
         with:
