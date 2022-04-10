@@ -30,7 +30,8 @@ jobs:
         run: npm ci
       - name: Version
         shell: bash
-        run: npm run nx -- affected --target=version
+        run: npm run nx -- affected --base=origin/main --target=version
+        continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Tag last-release
