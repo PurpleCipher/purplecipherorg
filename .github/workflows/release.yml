@@ -21,7 +21,8 @@ jobs:
       - run: npm ci
       - name: Version
         shell: bash
-        run: npm nx affected --base=last-release --target=version
+        run: npm run nx -- affected --base=last-release --target=version
+        continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Tag last-release
