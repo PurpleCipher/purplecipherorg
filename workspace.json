@@ -1,4 +1,7 @@
 {
   "version": 2,
-  "projects": {}
+  "projects": {
+    "purple-cipher-web": "apps/purple-cipher-web",
+    "purple-cipher-web-e2e": "apps/purple-cipher-web-e2e"
+  }
 }

@@ -1,0 +1,109 @@
+{
+  "projectType": "application",
+  "root": "apps/purple-cipher-web",
+  "sourceRoot": "apps/purple-cipher-web/src",
+  "prefix": "pcw",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/purple-cipher-web",
+        "index": "apps/purple-cipher-web/src/index.html",
+        "main": "apps/purple-cipher-web/src/main.ts",
+        "polyfills": "apps/purple-cipher-web/src/polyfills.ts",
+        "tsConfig": "apps/purple-cipher-web/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/purple-cipher-web/src/favicon.ico",
+          "apps/purple-cipher-web/src/assets"
+        ],
+        "styles": ["apps/purple-cipher-web/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/purple-cipher-web/src/environments/environment.ts",
+              "with": "apps/purple-cipher-web/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "purple-cipher-web:build:production"
+        },
+        "development": {
+          "browserTarget": "purple-cipher-web:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "purple-cipher-web:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/purple-cipher-web/src/**/*.ts",
+          "apps/purple-cipher-web/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/purple-cipher-web"],
+      "options": {
+        "jestConfig": "apps/purple-cipher-web/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "angular",
+        "commitMessageFormat": "chore(${projectName}): release version ${version}"
+      }
+    },
+    "docker": {
+      "executor": "@nx-tools/nx-docker:build",
+      "options": {
+        "push": false,
+        "load": true,
+        "tags": ["purple-cipher-org/web:latest", "purple-cipher-org/web:v1"]
+      }
+    }
+  },
+  "tags": []
+}
