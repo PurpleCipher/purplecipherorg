@@ -5,6 +5,8 @@ on:
     branches:
       - main
 
+env:
+  DEPENDENCIES_CACHE: cache-node-modules
 
 jobs:
   version:
@@ -21,7 +23,15 @@ jobs:
         run: |
           git config user.name "GitHub Bot"
           git config user.email "gituser@example.com"
-      - run: npm ci
+      - name: Cache node modules
+        id: cache
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ env.DEPENDENCIES_CACHE }}-${{ hashFiles('package-lock.json') }}
+      - name: install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
       - name: Version
         shell: bash
         run: npm run nx -- affected --base=last-release --target=version
