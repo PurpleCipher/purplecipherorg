@@ -92,7 +92,6 @@
     "version": {
       "executor": "@jscutlery/semver:version",
       "options": {
-        "baseBranch": "main",
         "preset": "angular",
         "commitMessageFormat": "refactor(${projectName}): release version ${version}",
         "postTargets": ["purple-cipher-web:github"]
