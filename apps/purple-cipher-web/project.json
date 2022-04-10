@@ -95,7 +95,7 @@
         "baseBranch": "main",
         "preset": "angular",
         "commitMessageFormat": "refactor(${projectName}): release version ${version}",
-        "postTargets": ["${project}:github"]
+        "postTargets": ["purple-cipher-web:github"]
       }
     },
     "github": {
