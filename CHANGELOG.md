@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.2](https://github.com/PurpleCipher/purplecipherorg/compare/v0.0.0...v0.0.2) (2022-04-17)
+
+
+### Features
+
+* add versioning workflow ([2ed46bd](https://github.com/PurpleCipher/purplecipherorg/commit/2ed46bdc4c241925dbef45ebecc32c798c69bf99))
+
+
+### Bug Fixes
+
+* checkout code ([0fe994f](https://github.com/PurpleCipher/purplecipherorg/commit/0fe994f8ae2fd950b2d13907e8af07f7db5958a4))
+* link test job to version dry-run ([c106ba4](https://github.com/PurpleCipher/purplecipherorg/commit/c106ba41eeaa3e79abed926e3abda9f64b6f42d3))
+* **purple-cipher-web:** trigger build ([498570b](https://github.com/PurpleCipher/purplecipherorg/commit/498570b5c7e51f06323d027cae982f9c5e52d001))
+
 ### [0.0.1](https://github.com/PurpleCipher/purplecipherorg/compare/v0.0.0...v0.0.1) (2022-04-17)
 
 
