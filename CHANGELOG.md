@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.9](https://github.com/PurpleCipher/purplecipherorg/compare/v0.0.8...v0.0.9) (2022-04-18)
+
+
+### Bug Fixes
+
+* link image to repo ([be8f131](https://github.com/PurpleCipher/purplecipherorg/commit/be8f131e95b96cfbe6d5f7972d9db2a0e246b030))
+
 ### [0.0.8](https://github.com/PurpleCipher/purplecipherorg/compare/v0.0.7...v0.0.8) (2022-04-18)
 
 
