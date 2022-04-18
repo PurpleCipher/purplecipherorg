@@ -8,6 +8,9 @@ on:
 env:
   DEPENDENCIES_CACHE: cache-node-modules
   BUILD_ARTIFACTS: dist-artifacts
+  REPO: ${{ secrets.REPO }}
+  CR_PAT: ${{ secrets.CR_PAT }}
+  GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
 
 jobs:
   version:
@@ -68,10 +71,34 @@ jobs:
       - name: Build
         if: ${{ github.event_name }} != 'pull_request'
         shell: bash
-        run: npm run nx -- affected --base=last-release --target=build
+        run: npm run nx -- affected --base=origin/main --target=build
       - name: Upload artifacts
         if: ${{ github.event_name }} != 'pull_request'
         uses: actions/upload-artifact@v2
         with:
           name: ${{ env.BUILD_ARTIFACTS }}
           path: dist
+  package:
+    needs: [ build ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Extract version from tag
+        uses: damienaicheh/extract-version-from-tag-action@v1.0.0
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Cache node modules
+        id: cache
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ env.DEPENDENCIES_CACHE }}-${{ hashFiles('package-lock.json') }}
+      - name: install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+      - name: Package
+        run: npm run nx -- affected --base=last-release --target=package
