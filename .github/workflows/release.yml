@@ -71,7 +71,7 @@ jobs:
       - name: Build
         if: ${{ github.event_name }} != 'pull_request'
         shell: bash
-        run: npm run nx -- affected --base=origin/main --target=build
+        run: npm run nx -- affected --base=origin/main~1 --target=build
       - name: Upload artifacts
         if: ${{ github.event_name }} != 'pull_request'
         uses: actions/upload-artifact@v3
@@ -110,4 +110,4 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
       - name: Package
-        run: npm run nx -- affected --base=last-release --target=package
+        run: npm run nx -- affected --base=origin/main~1 --target=package
