@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/PurpleCipher/purplecipherorg/compare/v0.0.5...v0.0.6) (2022-04-18)
+
+
+### Bug Fixes
+
+* github package artifactory auth ([6c39c56](https://github.com/PurpleCipher/purplecipherorg/commit/6c39c5680254c858f437a7ce6713a9ca6ac9fa9f))
+
 ### [0.0.5](https://github.com/PurpleCipher/purplecipherorg/compare/v0.0.4...v0.0.5) (2022-04-18)
 
 
