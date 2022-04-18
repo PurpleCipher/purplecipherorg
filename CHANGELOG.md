@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/PurpleCipher/purplecipherorg/compare/v0.0.7...v0.0.8) (2022-04-18)
+
+
+### Bug Fixes
+
+* use lowercase for image name ([b7d5b33](https://github.com/PurpleCipher/purplecipherorg/commit/b7d5b33e0b1eff52e0a6c62eecda7013c0df541e))
+
 ### [0.0.7](https://github.com/PurpleCipher/purplecipherorg/compare/v0.0.6...v0.0.7) (2022-04-18)
 
 
