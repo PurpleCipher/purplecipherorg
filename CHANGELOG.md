@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/PurpleCipher/purplecipherorg/compare/v0.0.2...v0.0.3) (2022-04-18)
+
+
+### Features
+
+* add packaging job ([685d649](https://github.com/PurpleCipher/purplecipherorg/commit/685d64963eb8a650f7440dd5551dcbb70b6f92e1))
+
+
+### Bug Fixes
+
+* use main as base ([1575778](https://github.com/PurpleCipher/purplecipherorg/commit/1575778516c0ea171ac20c44cb3fe3d0f97b6a16))
+
 ### [0.0.2](https://github.com/PurpleCipher/purplecipherorg/compare/v0.0.0...v0.0.2) (2022-04-17)
 
 
