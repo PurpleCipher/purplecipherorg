@@ -112,6 +112,16 @@
         "load": true,
         "tags": ["purple-cipher-org/web:latest", "purple-cipher-org/web:v1"]
       }
+    },
+    "package": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "./tools/package/package.sh purple-cipher-web apps/purple-cipher-web docker"
+          }
+        ]
+      }
     }
   },
   "tags": []
