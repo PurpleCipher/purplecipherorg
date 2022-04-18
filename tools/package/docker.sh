@@ -6,8 +6,8 @@ dist=$3
 
 VERSION="$MAJOR.$MINOR.$PATCH"
 echo "Version: $VERSION"
-TAG="ghcr.io/PurpleCipher/$REPO-$appName:$VERSION"
-LATEST="ghcr.io/PurpleCipher/${REPO}-${appName}:latest"
+TAG="ghcr.io/purplecipher/$appName:$VERSION"
+LATEST="ghcr.io/purplecipher/${appName}:latest"
 BUILD_TIMESTAMP=$( date '+%F_%H:%M:%S' )
 
 
