@@ -68,7 +68,7 @@ jobs:
       - name: Build
         if: ${{ github.event_name }} != 'pull_request'
         shell: bash
-        run: npm run nx -- affected --base=last-release --target=build
+        run: npm run nx -- affected --base=origin/main --target=build
       - name: Upload artifacts
         if: ${{ github.event_name }} != 'pull_request'
         uses: actions/upload-artifact@v2
