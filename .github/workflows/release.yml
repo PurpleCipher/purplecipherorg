@@ -11,6 +11,8 @@ env:
   REPO: ${{ secrets.REPO }}
   CR_PAT: ${{ secrets.CR_PAT }}
   GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
+  NX_BASE=origin/main~1
+  NX_HEAD=origin/main
 
 jobs:
   version:
@@ -67,13 +69,11 @@ jobs:
       - name: Test
         if: ${{ github.event_name }} == 'pull_request'
         shell: bash
-        run: npm run nx -- affected --base=last-release --target=test
+        run: npm run nx -- affected --target=test
       - name: Build
-        if: ${{ github.event_name }} != 'pull_request'
         shell: bash
-        run: npm run nx -- affected --base=origin/main~1 --target=build
+        run: npm run nx -- affected --target=build
       - name: Upload artifacts
-        if: ${{ github.event_name }} != 'pull_request'
         uses: actions/upload-artifact@v3
         with:
           name: ${{ env.BUILD_ARTIFACTS }}
@@ -86,7 +86,6 @@ jobs:
         with:
           fetch-depth: 0
       - name: Download artifacts
-        if: ${{ github.event_name }} != 'pull_request'
         uses: actions/download-artifact@v3
         with:
           name: ${{ env.BUILD_ARTIFACTS }}
@@ -110,4 +109,4 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
       - name: Package
-        run: npm run nx -- affected --base=origin/main~1 --target=package
+        run: npm run nx -- affected --target=package
