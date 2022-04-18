@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.12](https://github.com/PurpleCipher/purplecipherorg/compare/v0.0.11...v0.0.12) (2022-04-18)
+
+
+### Features
+
+* trigger remote image update ([ab01523](https://github.com/PurpleCipher/purplecipherorg/commit/ab015238fb6dc72465dd401c990cf6ce49be38c7))
+
 ### [0.0.11](https://github.com/PurpleCipher/purplecipherorg/compare/v0.0.10...v0.0.11) (2022-04-18)
 
 
